@@ -87,3 +87,11 @@ input[type='submit'] {
 input[type='submit']:hover {
     background-color: #45a049;
 }
+
+#logout {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 4px;
+    cursor: pointer;
+}
