@@ -1,4 +1,4 @@
-const BASE_URL = 'https://heroku-deploy007.herokuapp.com/';
+const BASE_URL = 'https://heroku-deploy007.herokuapp.com';
 //http://localhost:7890 change for testing
 export async function signUpUser(userInfo) {
     const res = await fetch(`${BASE_URL}/api/v1/users`, {
