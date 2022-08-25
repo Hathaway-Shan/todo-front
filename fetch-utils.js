@@ -57,7 +57,7 @@ export async function logoutUser() {
 
 //todos section
 
-export async function createTodo(todoInfo) {
+export async function createTodo(props) {
     const res = await fetch(`${BASE_URL}/api/v1/todos`, {
         method: 'POST',
         headers: {
@@ -65,11 +65,12 @@ export async function createTodo(todoInfo) {
             'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(todoInfo),
+        body: JSON.stringify(props),
     });
     const data = await res.json();
     if (res.ok) {
-        location.replace('./tasks');
+        // return await res.json();
+        console.log(res);
     } else {
         console.error(data.message);
     }
