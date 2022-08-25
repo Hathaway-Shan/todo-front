@@ -1,5 +1,6 @@
-const BASE_URL = 'https://heroku-deploy007.herokuapp.com';
-//http://localhost:7890 change for testing
+const BASE_URL = 'http://localhost:7890';
+//change for testing
+// const BASE_URL = 'https://heroku-deploy007.herokuapp.com';
 export async function signUpUser(userInfo) {
     const res = await fetch(`${BASE_URL}/api/v1/users`, {
         method: 'POST',
@@ -51,5 +52,25 @@ export async function logoutUser() {
     });
     if (resp.ok) {
         location.replace('../');
+    }
+}
+
+//todos section
+
+export async function createTodo(todoInfo) {
+    const res = await fetch(`${BASE_URL}/api/v1/todos`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(todoInfo),
+    });
+    const data = await res.json();
+    if (res.ok) {
+        location.replace('./tasks');
+    } else {
+        console.error(data.message);
     }
 }
