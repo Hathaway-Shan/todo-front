@@ -1,6 +1,6 @@
-const BASE_URL = 'http://localhost:7890';
+// const BASE_URL = 'http://localhost:7890';
 //change for testing
-// const BASE_URL = 'https://heroku-deploy007.herokuapp.com';
+const BASE_URL = 'https://heroku-deploy007.herokuapp.com';
 export async function signUpUser(userInfo) {
     const res = await fetch(`${BASE_URL}/api/v1/users`, {
         method: 'POST',
@@ -18,20 +18,7 @@ export async function signUpUser(userInfo) {
         console.error(data.message);
     }
 }
-// export async function getUser() {
-//     const resp = await fetch(`${BASE_URL}/api/v1/users/me`, {
-//         method: 'GET',
-//         headers: {
-//             Accept: 'application/json',
-//             'Content-Type': 'application/json',
-//         },
-//         credentials: 'include',
-//     });
-//     if (resp.ok) {
-//         const user = await resp.json();
-//         return user;
-//     }
-// }
+
 export async function redirectIfLoggedIn() {
     const res = await fetch(`${BASE_URL}/api/v1/users/me`, {
         method: 'GET',
